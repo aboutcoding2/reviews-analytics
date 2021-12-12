@@ -21,3 +21,30 @@ for d in data:
 		new.append(d)
 print('一共有', len(new), '筆留言長度小於100')
 
+
+word_count = {}
+for d in data:
+	words = d.split()
+	for word in words:
+		if word in word_count:
+			word_count[word] += 1
+		else:
+			word_count[word] = 1
+
+for word in word_count:
+	if word_count[word] > 100000:
+		print(word, word_count[word])
+
+print(len(word_count))
+
+while True:
+	word = input('請輸入要查詢的字: ')
+	if word == 'q':
+		break
+	print(word,'出現', word_count[word], '次')
+print('感謝使用本查詢功能')
+
+
+
+
+			
