@@ -1,3 +1,4 @@
+import time
 data = []
 count = 0
 with open('reviews.txt', 'r') as f:
@@ -22,6 +23,7 @@ for d in data:
 print('一共有', len(new), '筆留言長度小於100')
 
 
+start_time = time.time()
 word_count = {}
 for d in data:
 	words = d.split()
@@ -34,6 +36,8 @@ for d in data:
 for word in word_count:
 	if word_count[word] > 100000:
 		print(word, word_count[word])
+end_time = time.time()
+print('花了', end_time - start_time, 'seconds')
 
 print(len(word_count))
 
@@ -43,8 +47,3 @@ while True:
 		break
 	print(word,'出現', word_count[word], '次')
 print('感謝使用本查詢功能')
-
-
-
-
-			
